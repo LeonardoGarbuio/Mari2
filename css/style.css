@@ -1,0 +1,646 @@
+/* RESET BÁSICO */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* FONTE GERAL */
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: #444;
+    background-color: #f5f5f5; /* Fundo cinza claro */
+    padding-top: 60px; /* Espaço para a navegação fixa */
+}
+
+/* Contêiner principal */
+.main-container {
+    position: relative;
+    width: 100vw;
+    height: auto; /* Ajustado para altura dinâmica */
+    overflow: hidden;
+}
+
+/* Imagem de fundo (para a página com cartões) */
+.background-image {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 850px;
+    height: auto;
+    object-fit: contain;
+    object-position: bottom right;
+    z-index: -1;
+    opacity: 0.9;
+}
+
+/* CABEÇALHO / MENU (para a página MCB) */
+nav {
+    position: fixed; /* Alterado para fixed para ocupar o topo sem afetar o fluxo */
+    top: 0;
+    width: 100%;
+    background-color: white;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 15px 0;
+    border-bottom: 1px solid #ccc;
+    overflow: visible;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: visible;
+}
+
+nav ul li {
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    position: relative; /* Necessário para o submenu absoluto */
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1rem;
+    text-transform: none;
+    font-weight: normal;
+    font-family: 'Roboto', sans-serif;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #6f42c1;
+}
+
+/* Estilo específico para o item "Quem Somos" */
+#quem-somos {
+    position: relative; /* Garante o posicionamento do submenu */
+    overflow: visible; /* Evita que o submenu seja cortado */
+
+}
+
+/* Estilo do submenu com ID */
+#submenu {
+    display: none; /* Escondido por padrão */
+    position: absolute;
+    top: 100%; /* Aparece abaixo do item pai */
+    left: 0;
+    background-color: #fff;
+    padding: 10px 0;
+    min-width: 200px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 2000; /* Garante que o submenu fique acima de outros elementos */
+}
+
+/* Estilo dos itens dentro do submenu */
+#submenu li {
+    padding: 10px 20px;
+    margin: 0;
+    position: static; /* Sobrescreve position: relative global */
+    overflow: visible; /* Evita corte do conteúdo */
+    display: block; /* Garante que os itens sejam exibidos em bloco */
+}
+
+/* Ajuste para links dentro do submenu */
+#submenu li a {
+    color: #333;
+    text-decoration: none;
+    display: block;
+    font-size: 1rem;
+    transition: color 0.3s ease; /* Consistência com o menu principal */
+}
+
+/* Hover para links do submenu */
+#submenu li a:hover {
+    color: #6f42c1; /* Cor ao passar o mouse, consistente com o menu principal */
+}
+
+/* Barra vertical entre itens do menu */
+nav ul li:not(:last-child)::after {
+    content: '|';
+    color: #999;
+    margin-left: 20px;
+    margin-right: -5px;
+}
+
+/* Cabeçalho (para a página com cartões) */
+header {
+    padding: 30px;
+    padding-left: 10%;
+    text-align: left;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+}
+
+.title-wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+h1 {
+    font-size: 48px;
+    margin: 0;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+h1 .fatores-de {
+    color: #444;
+}
+
+h1 .sucesso {
+    color: #6f42c1;
+}
+
+.title-line {
+    position: absolute;
+    left: 630px;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(to right, #6f42c1, transparent);
+    top: 50px;
+    z-index: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.line-end-image {
+    width: 50px;
+    height: 60px;
+    margin-right: 15px;
+    border-radius: 5px;
+}
+
+/* CONTAINER DA IMAGEM PRINCIPAL (para a página MCB) */
+.container {
+    width: 100%;
+    background-color: #976DD8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto; /* Ajustado para altura dinâmica */
+    min-height: 300px; /* Altura mínima para evitar colapso */
+    position: relative;
+    padding: 20px;
+    margin-top: 0; /* Removido espaço extra acima */
+}
+
+.purple-left, .purple-right {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 20%;
+    background: linear-gradient(to right, #976DD8, transparent);
+}
+
+.purple-left {
+    left: 0;
+}
+
+.purple-right {
+    right: 0;
+    background: linear-gradient(to left, #976DD8, transparent);
+}
+
+.img-container {
+    position: relative;
+    z-index: 1;
+    width: 60%;
+    text-align: center;
+}
+
+.img-container img {
+    width: 100%;
+    max-width: 505px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* SEÇÕES GERAIS (texto em caixa roxa clara - para a página MCB) */
+.section-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px auto; /* Reduzido de 30px para 20px */
+    gap: 20px;
+    flex-wrap: wrap;
+    max-width: 1200px;
+}
+
+.section-box {
+    flex: 1;
+    padding: 30px 20px;
+    background-color: #f9f5ff;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    min-width: 250px;
+    max-width: 500px;
+    min-height: 250px;
+    text-align: center;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.section-box i {
+    font-size: 36px;
+    color: #6f42c1;
+    margin-bottom: 15px;
+}
+
+.section-box p {
+    margin-bottom: 15px;
+    color: #333;
+    font-size: 1.5rem;
+    line-height: 1.8;
+    font-family:ˢᵘᵖᵉʳˢᶜʳᶦᵖᵗ;
+}
+
+.section-box strong {
+    color: #4B0082;
+    font-size: 1.6rem;
+    display: block;
+    line-height: 1.4;
+    margin-bottom: 10px;
+}
+
+/* BANNER COM IMAGEM ESTÁTICA (P2.jpg) */
+.banner-container {
+    position: relative;
+    width: 100%;
+    height: 400px; /* Ajustado para melhor exibição da imagem */
+    margin-top: 20px;
+    overflow: hidden;
+    border-radius: 15px; /* Adicionado para um visual mais elegante */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombra para destaque */
+    background-color: #f9f5ff; /* Fundo claro para destacar a imagem */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner-image {
+    width: 50%; /* Reduz a largura para 50% */
+    height: auto;
+    object-fit: contain; /* Garante que a imagem não seja cortada */
+    border: 3px solid #6f42c1; /* Adiciona uma borda roxa para destaque */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Sombra para profundidade */
+}
+
+/* Estilo para o texto sobreposto no banner (caso queira usar) */
+.banner-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    font-size: 1.8rem;
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.banner-text h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.banner-text p {
+    margin-bottom: 15px;
+}
+
+.banner-text button {
+    padding: 10px 20px;
+    background-color: #6f42c1;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.banner-text button:hover {
+    background-color: #9162c2;
+}
+
+/* SEÇÃO DE PROJETO (para a página MCB) */
+.projeto-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    flex-wrap: wrap;
+    margin: 20px; /* Reduzido de 50px para 20px */
+}
+
+.logo-secao {
+    text-align: center;
+}
+
+.logo-secao img {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    object-fit: contain;
+    border: 5px solid #6f42c1;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.texto-secao {
+    flex: 1;
+    font-size: 1.2rem;
+    color: #555;
+    min-width: 250px;
+    text-align: center;
+}
+
+.texto-secao p {
+    margin-bottom: 15px;
+}
+
+.texto-secao strong {
+    font-size: 1.4rem;
+    color: #4B0082;
+}
+
+.texto-secao em {
+    font-size: 1.2rem;
+    color: #6f42c1;
+}
+
+.texto-secao button {
+    padding: 15px 30px;
+    background-color: #6f42c1;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.texto-secao button:hover {
+    background-color: #9162c2;
+}
+
+/* Contêiner externo dos cartões (para a página com cartões) */
+.cards-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: calc(100% - 62px);
+    padding: 20px 0;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 1;
+}
+
+/* Contêiner dos cartões (para a página com cartões) */
+.cards-container {
+    display: flex;
+    gap: 200px; /* Aumentado para 200px */
+    flex: 0 0 auto;
+    margin-left: 10%;
+    overflow-x: auto;
+    padding: 20px 0;
+}
+
+/* Cartão (para a página com cartões) */
+.card {
+    background-color: #f9f5ff;
+    border: 2px solid #d1c4e9;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    padding: 40px;
+    text-align: center;
+    width: 300px;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* Círculo ao redor dos ícones (para a página com cartões) */
+.icon-circle {
+    width: 50px;
+    height: 50px;
+    background-color: #6f42c1;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 25px;
+    color: #fff;
+    font-size: 28px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo do texto (para a página com cartões) */
+h2 {
+    color: #6f42c1;
+    font-weight: bold;
+    font-size: 24px;
+    margin: 15px 0;
+    letter-spacing: 0.5px;
+}
+
+p {
+    color: #444;
+    font-size: 16px;
+    margin: 10px 0;
+    flex: 1;
+    overflow: hidden;
+    line-height: 1.6;
+}
+
+/* Lista com marcadores personalizados (para a página com cartões) */
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 0;
+    flex: 1;
+    overflow: hidden;
+    text-align: center;
+}
+
+li {
+    color: #444;
+    font-size: 16px;
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    line-height: 1.6;
+}
+
+/* RODAPÉ (para a página MCB) */
+.footer {
+    background-color: #6f42c1;
+    color: white;
+    padding: 40px 0;
+    text-align: center;
+    margin-top: 20px; /* Reduzido de 30px para 20px */
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-left, .footer-right {
+    flex: 1;
+    text-align: left;
+}
+
+.footer-right {
+    text-align: right;
+}
+
+.social-icons a {
+    margin-left: 10px;
+}
+
+.social-icons img {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.social-icons img:hover {
+    transform: scale(1.1);
+}
+
+/* RESPONSIVIDADE PARA TELAS PEQUENAS */
+@media (max-width: 768px) {
+    body {
+        padding-top: 80px; /* Ajustado para navegação fixa em telas menores */
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li:not(:last-child)::after {
+        content: '';
+        margin: 0;
+    }
+
+    .section-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .projeto-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .logo-secao {
+        text-align: center;
+    }
+
+    .logo-secao img {
+        max-width: 400px;
+        height: auto;
+        object-fit: contain;
+        border-width: 3px;
+    }
+
+    .texto-secao {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .banner-container {
+        height: 300px; /* Ajustado para telas menores */
+    }
+
+    .banner-image {
+        width: 70%; /* Ajustado para telas menores */
+    }
+
+    .container {
+        flex-direction: column;
+        height: auto;
+        justify-content: center;
+    }
+
+    .img-container {
+        margin: 10px 0;
+        margin-left: 0;
+    }
+
+    .img-container img {
+        width: 90%;
+    }
+
+    .section-box p {
+        font-size: 1.2rem;
+    }
+
+    .section-box strong {
+        font-size: 1.4rem;
+    }
+
+    .cards-container {
+        gap: 50px; /* Reduzido para telas menores */
+        margin-left: 5%;
+    }
+
+    .card {
+        width: 250px;
+        height: auto;
+        min-height: 60vh;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 36px;
+    }
+
+    .title-line {
+        left: 10%;
+    }
+
+    /* Ajuste do submenu para telas menores */
+    #submenu {
+        position: static; /* Remove o posicionamento absoluto em telas pequenas */
+        width: 100%; /* Ocupa a largura total */
+        box-shadow: none; /* Remove a sombra para um visual mais limpo */
+    }
+
+    #submenu li {
+        padding: 10px 0; /* Ajusta o padding para telas menores */
+    }
+}
