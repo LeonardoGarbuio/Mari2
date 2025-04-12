@@ -81,7 +81,6 @@ nav ul li a:hover {
 #quem-somos {
     position: relative; /* Garante o posicionamento do submenu */
     overflow: visible; /* Evita que o submenu seja cortado */
-
 }
 
 /* Estilo do submenu com ID */
@@ -266,7 +265,7 @@ h1 .sucesso {
     color: #333;
     font-size: 1.5rem;
     line-height: 1.8;
-    font-family:ˢᵘᵖᵉʳˢᶜʳᶦᵖᵗ;
+    font-family: 'Roboto', sans-serif; /* Corrigido de 'superscript' */
 }
 
 .section-box strong {
@@ -277,7 +276,12 @@ h1 .sucesso {
     margin-bottom: 10px;
 }
 
-/* BANNER COM IMAGEM ESTÁTICA (P2.jpg) */
+/* Fonte personalizada para os textos específicos */
+.custom-font {
+    font-family: "Bradley Hand ITC", cursive, sans-serif;
+}
+
+/* BANNER COM IMAGEM ESTÁTICA */
 .banner-container {
     position: relative;
     width: 100%;
@@ -293,7 +297,7 @@ h1 .sucesso {
 }
 
 .banner-image {
-    width: 50%; /* Reduz a largura para 50% */
+    width: 40%; /* Reduzido de 50% para 40% */
     height: auto;
     object-fit: contain; /* Garante que a imagem não seja cortada */
     border: 3px solid #6f42c1; /* Adiciona uma borda roxa para destaque */
@@ -533,7 +537,7 @@ li {
 .social-icons img {
     width: 40px;
     height: 40px;
-    transition: transform 0.3s ease-in-out;
+   _transition: transform 0.3s ease-in-out;
 }
 
 .social-icons img:hover {
@@ -587,7 +591,7 @@ li {
     }
 
     .banner-image {
-        width: 70%; /* Ajustado para telas menores */
+        width: 60%; /* Reduzido de 70% para 60% */
     }
 
     .container {
